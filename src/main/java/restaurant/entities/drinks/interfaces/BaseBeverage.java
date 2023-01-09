@@ -1,7 +1,6 @@
 package restaurant.entities.drinks.interfaces;
 
-import static restaurant.common.ExceptionMessages.INVALID_COUNTER;
-import static restaurant.common.ExceptionMessages.INVALID_NAME;
+import static restaurant.common.ExceptionMessages.*;
 
 public abstract class BaseBeverage implements Beverages{
 
@@ -12,9 +11,9 @@ public abstract class BaseBeverage implements Beverages{
 
     public BaseBeverage(String name, int counter, double price, String brand) {
         setName(name);
-        this.counter = counter;
-        this.price = price;
-        this.brand = brand;
+        setCounter(counter);
+        setPrice(price);
+        setBrand(brand);
     }
 
     public void setName(String name) {
@@ -30,25 +29,38 @@ public abstract class BaseBeverage implements Beverages{
         }
         this.counter = counter;
     }
-    
+
+    private void setPrice(double price) {
+        if (price <= 0) {
+            throw new IllegalArgumentException(INVALID_PRICE);
+        }
+        this.price = price;
+    }
+
+    private void setBrand(String brand) {
+        if (brand == null || brand.trim().isEmpty()) {
+            throw new IllegalArgumentException(INVALID_BRAND);
+        }
+        this.brand = brand;
+    }
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public int getCounter() {
-        return 0;
+        return this.counter;
     }
 
     @Override
     public double getPrice() {
-        return 0;
+        return this.price;
     }
 
     @Override
     public String getBrand() {
-        return null;
+        return this.brand;
     }
 }

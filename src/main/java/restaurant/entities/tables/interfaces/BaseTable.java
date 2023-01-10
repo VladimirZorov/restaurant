@@ -11,8 +11,8 @@ import static restaurant.common.ExceptionMessages.INVALID_TABLE_SIZE;
 
 public abstract class BaseTable implements Table {
 
-    protected Collection<HealthyFood> healthyFood;
-    protected Collection<Beverages> beverages;
+    private Collection<HealthyFood> healthyFood;
+    private Collection<Beverages> beverages;
     private int number;
     private int size;
     private int numberOfPeople;

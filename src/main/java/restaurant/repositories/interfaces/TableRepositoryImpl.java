@@ -2,7 +2,7 @@ package restaurant.repositories.interfaces;
 
 import java.util.Collection;
 
-public class TableRepositoryImpl implements TableRepository{
+public class TableRepositoryImpl implements TableRepository {
 
 
 
@@ -18,6 +18,6 @@ public class TableRepositoryImpl implements TableRepository{
 
     @Override
     public Object byNumber(int number) {
-        return null;
+        return number;
     }
 }

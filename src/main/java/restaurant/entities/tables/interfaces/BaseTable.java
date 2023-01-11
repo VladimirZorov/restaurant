@@ -2,6 +2,7 @@ package restaurant.entities.tables.interfaces;
 
 import restaurant.entities.drinks.interfaces.Beverages;
 import restaurant.entities.healthyFoods.interfaces.HealthyFood;
+import restaurant.repositories.interfaces.TableRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -77,6 +78,7 @@ public abstract class BaseTable implements Table {
 
     @Override
     public void reserve(int numberOfPeople) {
+        isReservedTable = true;
 
     }
 
